@@ -1,24 +1,44 @@
-# lorawan_sim_ud3tn
 
-# LoRaWAN-DTN Integration with LWN Simulator, ChirpStack, and uD3TN
+## LoRaWAN-DTN Integration with LWN Simulator, ChirpStack, and uD3TN
 
-This repository provides a comprehensive guide to simulate a LoRaWAN environment using **LWN Simulator**, manage data with **ChirpStack**, and forward bundles to **uD3TN**. This architecture is suitable for IoT applications in environments with intermittent connectivity.
+This project simulates a LoRaWAN environment using **LWN Simulator**, manages data with **ChirpStack**, and integrates with **uD3TN** for DTN-based IoT applications. The architecture is ideal for environments with intermittent connectivity, such as Direct-to-Satellite IoT (DtS-IoT).
+
+---
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Requirements](#requirements)
+3. [Getting Started](#getting-started)
+4. [Usage Instructions](#usage-instructions)
+   - [Setup LWN Simulator](#setup-lwn-simulator)
+   - [Deploy ChirpStack Using Docker](#deploy-chirpstack-using-docker)
+   - [Capture MQTT Data and Forward to uD3TN](#capture-mqtt-data-and-forward-to-ud3tn)
+5. [DtS-IoT Integration](#dts-iot-integration)
+6. [Alternative Approach: UDP Data Capture](#alternative-approach-udp-data-capture)
+7. [References](#references)
 
 ---
 
 ## Requirements
-
-1. **Docker** (for ChirpStack deployment).
-2. **Python 3.x** with required libraries (e.g., `paho-mqtt`).
+1. Docker (for ChirpStack deployment).
+2. Python 3.x and libraries (`paho-mqtt`).
 3. Access to [LWN Simulator](https://github.com/UniCT-ARSLab/LWN-Simulator).
-4. Custom scripts for integrating MQTT with uD3TN.
+4. uD3TN and MQTT integration scripts.
+
+---
+
+## Getting Started
+1. Clone this repository: `git clone ...`
+2. Install Docker and Python dependencies.
+3. Run LWN Simulator to simulate LoRaWAN devices.
+4. Deploy ChirpStack using Docker for data management.
+5. Use `mqtt_to_ud3tn.py` to integrate MQTT with uD3TN.
 
 ---
 
 ## Usage Instructions
 
-### 1. Setup and Run LWN Simulator
-
+### 1. Setup LWN Simulator
 LWN Simulator creates a virtual LoRaWAN environment with devices, forwarders, and gateways.
 
 1. **Installation**:
@@ -42,7 +62,6 @@ LWN Simulator creates a virtual LoRaWAN environment with devices, forwarders, an
    - Allows customization of payloads, MAC commands, and device classes (A, B, C).
 
 ---
-
 ### 2. Deploy ChirpStack Using Docker
 
 ChirpStack is an open-source LoRaWAN Network Server stack.
@@ -70,9 +89,7 @@ ChirpStack is an open-source LoRaWAN Network Server stack.
    -  ChirpStack Network Server: Processes and routes LoRaWAN packets.
    -  ChirpStack Application Server: Publishes received data to an MQTT topic.
 
-
-### 3. Capture MQTT Data and Send to uD3TN
-    
+### 3. Capture MQTT Data and Forward to uD3TN
   -  To integrate MQTT data into a DTN architecture, use the mqtt_to_ud3tn.py script. This script captures MQTT messages from ChirpStack, converts them into DTN bundles, and forwards them to a remote uD3TN node. At the destination, these bundles can be extracted and retransmitted as MQTT messages.
 
   ```bash
@@ -124,9 +141,9 @@ Building upon the strengths of LoRaWAN architectures and DTN protocols, the foll
 
 ---
 
-## **Integration of MQTT to uD3TN in DtS-IoT**
+## DtS-IoT Integration
 
-### **Background**
+### Background
 The study highlights a LoRaWAN-based DtS-IoT architecture where devices transmit data to satellites. LoRaWAN consists of multiple layers:
 - **Network Server:** Handles authentication and routing.
 - **Application Server:** Manages data processing and presentation.
@@ -135,7 +152,7 @@ A key challenge is efficiently managing intermittent connections between satelli
 
 ---
 
-### **Proposed Integration**
+### Proposed Integration
 Using the MQTT-to-uD3TN workflow, this integration bridges LoRaWAN and DTN capabilities for robust data delivery.
 
 #### **1. Data Capture at the Application Server**
@@ -156,7 +173,7 @@ Using the MQTT-to-uD3TN workflow, this integration bridges LoRaWAN and DTN capab
 
 ### **Diagram**
 
-[End Device] -> [Gateway] -> [Network Server] -> [Application Server] -> [MQTT Capture] -> [MQTT Capture] -> [Transformation to DTN Bundles] 
+[End Device] -> [Gateway] -> [Network Server] -> [Application Server] -> [MQTT Capture] -> [Transformation to DTN Bundles] 
 
 
 ---
@@ -177,14 +194,15 @@ This integration combines MQTT processing with the DtS-IoT model, paving the way
 
 ---
 
-## **Alternative Attempt: Capturing UDP Data Between Gateway and Network Server**
 
-### **Objective**
+## Alternative Approach: UDP Data Capture
+
+### Objective
 Capture raw UDP data transmitted between the LoRaWAN Gateway and Network Server to process and forward it as DTN bundles.
 
 ---
 
-### **Approach**
+### Approach
 1. **Interception of UDP Packets**
    - Used `tcpdump` to monitor traffic on port 1700:
      ```bash
@@ -194,6 +212,11 @@ Capture raw UDP data transmitted between the LoRaWAN Gateway and Network Server 
 
 2. **Direct Processing of UDP Data**
    - Wrote a Python script to capture these packets, process their payload, and format them into DTN bundles for transmission using `aap2_send.py`.
+
+## References
+- [LWN Simulator Documentation](https://github.com/UniCT-ARSLab/LWN-Simulator#readme)
+- [ChirpStack Documentation](https://www.chirpstack.io/)
+- [uD3TN Repository](https://github.com/dtn7/uD3TN)
 
 
 
