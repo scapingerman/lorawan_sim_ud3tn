@@ -159,4 +159,42 @@ Using the MQTT-to-uD3TN workflow, this integration bridges LoRaWAN and DTN capab
 [End Device] -> [Gateway] -> [Network Server] -> [Application Server] -> [MQTT Capture] -> [MQTT Capture] -> [Transformation to DTN Bundles] 
 
 
+---
+
+### **Benefits**
+1. **Seamless Integration:** Leverages the modularity of LoRaWAN and DTN architectures.
+2. **Robustness to Disruptions:** Ensures message integrity on lossy satellite links.
+3. **Scalability:** Accommodates thousands of devices, addressing scalability concerns.
+
+---
+
+### **Next Steps**
+1. Test the workflow with real LoRaWAN hardware (e.g., Heltec nodes and RAK gateways).
+2. Simulate satellite-ground link dynamics to evaluate bundle delivery performance.
+3. Explore advanced DTN configurations (e.g., fragmentation and reassembly) for large payload optimization.
+
+This integration combines MQTT processing with the DtS-IoT model, paving the way for scalable and reliable satellite IoT networks.
+
+---
+
+## **Alternative Attempt: Capturing UDP Data Between Gateway and Network Server**
+
+### **Objective**
+Capture raw UDP data transmitted between the LoRaWAN Gateway and Network Server to process and forward it as DTN bundles.
+
+---
+
+### **Approach**
+1. **Interception of UDP Packets**
+   - Used `tcpdump` to monitor traffic on port 1700:
+     ```bash
+     sudo tcpdump -i <interface> udp port 1700
+     ```
+   - Verified the presence of UDP packets between the gateway and the Network Server.
+
+2. **Direct Processing of UDP Data**
+   - Wrote a Python script to capture these packets, process their payload, and format them into DTN bundles for transmission using `aap2_send.py`.
+
+
+
 
