@@ -110,15 +110,12 @@ Below is a diagram illustrating where the MQTT data is captured in the typical L
 End Device --> Gateway --> Network Server --> Application Server --> [MQTT Broker] --> uD3TN
  ```
 
-End Device: Sends LoRa frames to the Gateway.
-
-Gateway: Forwards frames to the Network Server.
-
-Network Server: Processes frames, applies network rules, and forwards the data to the Application Server.
-
-Application Server: Publishes processed data to the MQTT Broker.
-
-MQTT Broker: Serves as a bridge between LoRaWAN and DTN architectures by converting MQTT messages into DTN bundles, ensuring reliable data delivery in delay-tolerant networks.
+- End Device: Sends LoRa frames to the Gateway.  
+- Gateway: Forwards frames to the Network Server.  
+- Network Server: Processes frames, applies network rules, and forwards the data to the Application Server.  
+- Application Server: Publishes processed data to the MQTT Broker.  
+- MQTT Broker: Transfers MQTT messages to uD3TN's application interface.  
+- uD3TN: Converts MQTT messages into DTN bundles and ensures reliable data delivery in delay-tolerant networks.
 
 
 ### Next Step
