@@ -45,13 +45,21 @@ LWN Simulator creates a virtual LoRaWAN environment with devices, forwarders, an
      git clone https://github.com/scapingerman/lorawan_sim_ud3tn.git
      cd lorawan_sim_ud3tn
      ```
-2. **Run the simulator**:
+   - And the Chirpstack's docker:
+     ```bash
+      git clone https://github.com/chirpstack/chirpstack-docker.git
+      cd chirpstack-docker
+     ```  
+2. **Run the simulator and the docker**:
    - Navigate to the simulator directory and execute:
      ```bash
      cd lwnsimulator_x64
      ./lwnsimulator_x64
+     cd ..
+     cd chirpstack-docker
+     sudo docker compose up
      ```
-   - For more [LWN Simulator README](https://github.com/UniCT-ARSLab/LWN-Simulator#installation).
+   - For more [LWN Simulator README](https://github.com/UniCT-ARSLab/LWN-Simulator#installation) and [ChirpStack Docker](https://www.chirpstack.io/docs/getting-started/docker.html)
      
 3. **Features**:
    - Supports LoRaWAN v1.0.3 specification.
