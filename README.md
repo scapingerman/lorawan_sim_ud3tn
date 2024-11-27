@@ -42,19 +42,17 @@ LWN Simulator creates a virtual LoRaWAN environment with devices, forwarders, an
 1. **Installation**:
    - Clone the repository:
      ```bash
-     git clone https://github.com/UniCT-ARSLab/LWN-Simulator.git
-     cd LWN-Simulator
+     git clone https://github.com/scapingerman/lorawan_sim_ud3tn.git
+     cd lorawan_sim_ud3tn
      ```
-   - Follow installation steps in the [LWN Simulator README](https://github.com/UniCT-ARSLab/LWN-Simulator#installation).
-
 2. **Run the simulator**:
    - Navigate to the simulator directory and execute:
      ```bash
      cd lwnsimulator_x64
      ./lwnsimulator_x64
      ```
-   - Use the web interface to add gateways and end devices.
-
+   - For more [LWN Simulator README](https://github.com/UniCT-ARSLab/LWN-Simulator#installation).
+     
 3. **Features**:
    - Supports LoRaWAN v1.0.3 specification.
    - Allows customization of payloads, MAC commands, and device classes (A, B, C).
@@ -64,25 +62,19 @@ LWN Simulator creates a virtual LoRaWAN environment with devices, forwarders, an
 
 ChirpStack is an open-source LoRaWAN Network Server stack.
 
-1. **Clone the ChirpStack Docker repository**:
+1. **Start the Docker containers:**
+
    ```bash
-   git clone https://github.com/chirpstack/chirpstack-docker.git
    cd chirpstack-docker
-   ```
-   
-
-2. **Start the Docker containers:**
-
-   ```bash
-    sudo docker-compose up
+   sudo docker-compose up
    ```
 
-3. **Configuration:**
+2. **Configuration:**
 
   -  Edit configuration/chirpstack/chirpstack.toml to adjust the regional settings if needed.
   -  Use the provided docker-compose.yml as a base and modify it for production as necessary.
 
-4. **Components:**
+3. **Components:**
    -  ChirpStack Gateway Bridge: Connects gateways to the Network Server.
    -  ChirpStack Network Server: Processes and routes LoRaWAN packets.
    -  ChirpStack Application Server: Publishes received data to an MQTT topic.
