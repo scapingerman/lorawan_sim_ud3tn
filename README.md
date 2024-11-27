@@ -171,9 +171,8 @@ Using the MQTT-to-uD3TN workflow, this integration bridges LoRaWAN and DTN capab
 ---
 
 ### **Next Step**
-1. Test the workflow with real LoRaWAN hardware (e.g., Heltec nodes and RAK gateways).
+Test the workflow with real LoRaWAN hardware (e.g., Heltec nodes and RAK gateways).
 
-This integration combines MQTT processing with the DtS-IoT model, paving the way for scalable and reliable satellite IoT networks.
 
 ---
 
