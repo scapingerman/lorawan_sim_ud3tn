@@ -166,7 +166,6 @@ Using the MQTT-to-uD3TN workflow, this integration bridges LoRaWAN and DTN capab
 ![Diagram](dts_diagram1.png)
 
 
-
 ---
 
 ### **Benefits**
