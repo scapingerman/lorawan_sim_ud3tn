@@ -22,8 +22,6 @@ This project simulates a LoRaWAN environment using **LWN Simulator**, manages da
 ## Requirements
 1. Docker (for ChirpStack deployment).
 2. Python 3.x and libraries (`paho-mqtt`).
-3. Access to [LWN Simulator](https://github.com/UniCT-ARSLab/LWN-Simulator).
-4. uD3TN and MQTT integration scripts.
 
 ---
 
