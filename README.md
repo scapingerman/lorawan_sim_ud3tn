@@ -163,7 +163,8 @@ Using the MQTT-to-uD3TN workflow, this integration bridges LoRaWAN and DTN capab
 
 ### **Diagram**
 
-[End Device] -> [Gateway] -> [Network Server] -> [Application Server] -> [MQTT Capture] -> [Transformation to DTN Bundles] 
+![Diagram](dts_diagram1.png)
+
 
 
 ---
